@@ -2,6 +2,48 @@
 
 A modern web application that helps users create better AI prompts through guided questions and expert templates. Built with React, TypeScript, and Context Engineering principles.
 
+## 🖥️ Desktop Application
+
+This app can be run as a desktop application using Electron!
+
+### Quick Start (Windows)
+
+1. **Double-click** `run-desktop-app.bat` to start the desktop app
+2. Or right-click `run-desktop-app.ps1` and select "Run with PowerShell"
+
+### Quick Start (All Platforms)
+
+1. Open terminal/command prompt in the project directory
+2. Run: `npm run electron:dev`
+3. The desktop app will open automatically!
+
+### What Happens
+
+When you run the desktop app:
+- ✅ Starts the development server
+- ✅ Opens the Electron desktop window
+- ✅ Automatically opens in your default browser
+- ✅ Hot-reloads changes in real-time
+
+### Available Commands
+
+- `npm run electron:dev` - Start desktop app in development mode
+- `npm run electron:build` - Build desktop app for distribution
+- `npm run electron:dist` - Create distributable packages
+
+### Building for Distribution
+
+To create a standalone desktop application:
+
+```bash
+npm run electron:dist
+```
+
+This will create installable packages in the `release` folder:
+- Windows: `.exe` installer
+- macOS: `.dmg` file
+- Linux: `.AppImage` file
+
 ## 🚀 Features
 
 - **Guided Question Flow**: Step-by-step questions to gather context and requirements
