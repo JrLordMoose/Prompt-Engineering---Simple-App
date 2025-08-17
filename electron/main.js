@@ -23,8 +23,35 @@ function createWindow() {
 
   // Load the app
   if (isDev) {
-    // In development, load from the dev server
-    mainWindow.loadURL('http://localhost:3003');
+    // In development, try to find the correct port
+    const findPort = async () => {
+      const net = require('net');
+      
+      for (let port = 3000; port <= 3010; port++) {
+        try {
+          await new Promise((resolve, reject) => {
+            const socket = net.createConnection(port, 'localhost');
+            socket.on('connect', () => {
+              socket.destroy();
+              resolve(port);
+            });
+            socket.on('error', reject);
+            setTimeout(() => reject(new Error('timeout')), 100);
+          });
+          return port;
+        } catch (error) {
+          continue;
+        }
+      }
+      return 3000; // fallback
+    };
+
+    findPort().then(port => {
+      mainWindow.loadURL(`http://localhost:${port}`);
+      console.log(`Loading app from http://localhost:${port}`);
+    }).catch(() => {
+      mainWindow.loadURL('http://localhost:3000');
+    });
     
     // Open DevTools in development
     mainWindow.webContents.openDevTools();

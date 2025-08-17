@@ -8,8 +8,14 @@ This app can be run as a desktop application using Electron!
 
 ### Quick Start (Windows)
 
-1. **Double-click** `run-desktop-app.bat` to start the desktop app
-2. Or right-click `run-desktop-app.ps1` and select "Run with PowerShell"
+1. **Create Desktop Shortcut** (Recommended):
+   - Double-click `create-shortcut.bat` to create a desktop shortcut
+   - Or right-click `create-shortcut.ps1` and select "Run with PowerShell"
+   - The shortcut will work even if you rename the project folder!
+
+2. **Direct Launch**:
+   - Double-click `run-desktop-app.bat` to start the desktop app
+   - Or right-click `run-desktop-app.ps1` and select "Run with PowerShell"
 
 ### Quick Start (All Platforms)
 
@@ -24,6 +30,15 @@ When you run the desktop app:
 - ✅ Opens the Electron desktop window
 - ✅ Automatically opens in your default browser
 - ✅ Hot-reloads changes in real-time
+
+### Desktop Shortcut Features
+
+The desktop shortcut created by `create-shortcut.bat` or `create-shortcut.ps1`:
+- ✅ **Works from anywhere** - Uses absolute paths
+- ✅ **Renamable** - You can rename it to anything
+- ✅ **Movable** - Can be moved to any folder
+- ✅ **Pinnable** - Can be pinned to taskbar or start menu
+- ✅ **Persistent** - Works even if you move the project folder
 
 ### Available Commands
 
