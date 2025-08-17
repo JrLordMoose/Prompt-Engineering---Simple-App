@@ -82,24 +82,24 @@ export function QuestionWizard() {
     if (answers[currentQuestion.id] && currentQuestion.validation) {
       const value = answers[currentQuestion.id];
       
-      if (currentQuestion.validation.minLength && String(value).length < currentQuestion.validation.minLength) {
-        setErrors(prev => ({ ...prev, [currentQuestion.id]: `Minimum length is ${currentQuestion.validation.minLength} characters` }));
+      if (currentQuestion.validation?.minLength && String(value).length < currentQuestion.validation.minLength) {
+        setErrors(prev => ({ ...prev, [currentQuestion.id]: `Minimum length is ${currentQuestion.validation!.minLength} characters` }));
         return false;
       }
       
-      if (currentQuestion.validation.maxLength && String(value).length > currentQuestion.validation.maxLength) {
-        setErrors(prev => ({ ...prev, [currentQuestion.id]: `Maximum length is ${currentQuestion.validation.maxLength} characters` }));
+      if (currentQuestion.validation?.maxLength && String(value).length > currentQuestion.validation.maxLength) {
+        setErrors(prev => ({ ...prev, [currentQuestion.id]: `Maximum length is ${currentQuestion.validation!.maxLength} characters` }));
         return false;
       }
       
       // Validate number min/max
-      if (currentQuestion.validation.min !== undefined && Number(value) < currentQuestion.validation.min) {
-        setErrors(prev => ({ ...prev, [currentQuestion.id]: `Minimum value is ${currentQuestion.validation.min}` }));
+      if (currentQuestion.validation?.min !== undefined && Number(value) < currentQuestion.validation.min) {
+        setErrors(prev => ({ ...prev, [currentQuestion.id]: `Minimum value is ${currentQuestion.validation!.min}` }));
         return false;
       }
       
-      if (currentQuestion.validation.max !== undefined && Number(value) > currentQuestion.validation.max) {
-        setErrors(prev => ({ ...prev, [currentQuestion.id]: `Maximum value is ${currentQuestion.validation.max}` }));
+      if (currentQuestion.validation?.max !== undefined && Number(value) > currentQuestion.validation.max) {
+        setErrors(prev => ({ ...prev, [currentQuestion.id]: `Maximum value is ${currentQuestion.validation!.max}` }));
         return false;
       }
     }

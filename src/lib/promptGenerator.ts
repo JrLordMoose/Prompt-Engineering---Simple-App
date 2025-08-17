@@ -89,9 +89,6 @@ function getVariableValue(
     case 'variations_instruction':
       return getVariationsInstruction(answers.variations);
     
-    case 'length_instruction':
-      return getLengthInstruction(answers.length_preference);
-    
     default:
       return null;
   }

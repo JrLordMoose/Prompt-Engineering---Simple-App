@@ -48,10 +48,6 @@ export function OtherInput({
       'recipient_relationship': 'Describe your specific relationship with the recipient. Include context or unique circumstances.',
       'urgency': 'Describe the specific urgency level or timeline. Include any time constraints or deadlines.',
       'desired_outcome': 'Describe the specific outcome you want. Include details about the desired response or action.',
-      'length_preference': 'Describe your specific length requirements. Include any constraints or preferences.',
-      'headline_style': 'Describe the specific headline style you prefer. Include examples or adjectives that capture your desired approach.',
-      'goal': 'Describe your specific goal or objective. Include details about what you want to achieve.',
-      'content_type': 'Describe the specific type of content you\'re creating. Include format, style, or purpose details.',
       'headline_style': 'Describe the specific headline style you prefer. Include examples or adjectives that capture your desired approach.',
       'goal': 'Describe your specific goal or objective. Include details about what you want to achieve.'
     };
