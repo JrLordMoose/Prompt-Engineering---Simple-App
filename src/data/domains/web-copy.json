@@ -1,0 +1,230 @@
+{
+  "id": "web-copy",
+  "name": "Web Copy & Headlines",
+  "description": "Create compelling headlines and web copy for blogs, sales pages, and marketing content",
+  "icon": "file-text",
+  "color": "blue",
+  "questions": [
+    {
+      "id": "content_type",
+      "type": "select",
+      "question": "What type of web content are you creating?",
+      "description": "Different content types require different copy strategies",
+      "required": true,
+      "options": [
+        "Blog Post/Article",
+        "Landing Page",
+        "Sales Page",
+        "Email Subject Line",
+        "Website Section",
+        "Ad Copy",
+        "News/Announcement",
+        "How-to Guide",
+        "Case Study",
+        "Product Review"
+      ],
+      "order": 1
+    },
+    {
+      "id": "topic",
+      "type": "text",
+      "question": "What's the main topic or subject?",
+      "description": "Be specific about what the content covers",
+      "required": true,
+      "validation": {
+        "minLength": 3,
+        "maxLength": 100
+      },
+      "order": 2
+    },
+    {
+      "id": "headline_style",
+      "type": "select",
+      "question": "What style of headline do you prefer?",
+      "description": "Different styles work better for different audiences and goals",
+      "required": true,
+      "options": [
+        "Direct/Straightforward",
+        "Question-based",
+        "Numbered List",
+        "How-to/Instructional",
+        "Emotional/Compelling",
+        "Curiosity-driven",
+        "Benefit-focused",
+        "Urgent/Time-sensitive",
+        "Problem-Solution",
+        "Story-based"
+      ],
+      "order": 3
+    },
+    {
+      "id": "target_audience",
+      "type": "audience_select",
+      "question": "Who is your target audience?",
+      "description": "Choose from common audiences or enter your own custom audience",
+      "required": false,
+      "options": [
+        "Young Adults (18-25)",
+        "Professionals (25-40)",
+        "Business Leaders",
+        "Entrepreneurs",
+        "Students",
+        "Parents",
+        "Tech Enthusiasts",
+        "Creative Professionals",
+        "Healthcare Workers",
+        "Educators",
+        "Custom"
+      ],
+      "validation": {
+        "maxLength": 150
+      },
+      "order": 4
+    },
+    {
+      "id": "goal",
+      "type": "select",
+      "question": "What's your primary goal for this copy?",
+      "description": "Your goal will influence the copy strategy",
+      "required": true,
+      "options": [
+        "Drive Clicks/Traffic",
+        "Generate Leads",
+        "Increase Engagement",
+        "Build Authority",
+        "Sell Products/Services",
+        "Share Information",
+        "Entertain/Amuse",
+        "Inspire Action",
+        "Educate/Inform",
+        "Build Trust"
+      ],
+      "order": 5
+    },
+    {
+      "id": "tone",
+      "type": "select",
+      "question": "What tone should the copy have?",
+      "description": "The tone should match your brand and audience",
+      "required": true,
+      "options": [
+        "Professional/Formal",
+        "Casual/Friendly",
+        "Enthusiastic/Exciting",
+        "Authoritative/Expert",
+        "Humorous/Witty",
+        "Inspirational",
+        "Urgent/Important",
+        "Conversational",
+        "Confident/Assertive",
+        "Warm/Empathetic"
+      ],
+      "order": 6
+    },
+    {
+      "id": "length_preference",
+      "type": "select",
+      "question": "Do you have a length preference?",
+      "description": "Different platforms have different optimal lengths",
+      "required": false,
+      "options": [
+        "Short (under 50 characters)",
+        "Medium (50-100 characters)",
+        "Long (100+ characters)",
+        "No preference"
+      ],
+      "order": 7
+    },
+    {
+      "id": "variations",
+      "type": "number",
+      "question": "How many variations would you like?",
+      "description": "Choose how many different versions of your prompt to generate (3-20)",
+      "required": true,
+      "validation": {
+        "min": 3,
+        "max": 20
+      },
+      "order": 8
+    }
+  ],
+  "templates": [
+    {
+      "id": "web_copy_headline",
+      "name": "Web Copy Headline",
+      "description": "Create compelling headlines for web content",
+      "template": "Create a {tone} {headline_style} headline about {topic} that {goal_description}. Target audience: {target_audience}. {length_instruction}. {variations_instruction}",
+      "variables": {
+        "tone": {
+          "type": "string",
+          "required": true,
+          "description": "The tone of the headline"
+        },
+        "headline_style": {
+          "type": "string",
+          "required": true,
+          "description": "The style of headline"
+        },
+        "topic": {
+          "type": "string",
+          "required": true,
+          "description": "The main topic"
+        },
+        "goal_description": {
+          "type": "string",
+          "required": true,
+          "description": "Description of the goal"
+        },
+        "target_audience": {
+          "type": "string",
+          "required": false,
+          "description": "Target audience"
+        },
+        "length_instruction": {
+          "type": "string",
+          "required": false,
+          "description": "Length instruction"
+        },
+        "variations_instruction": {
+          "type": "string",
+          "required": false,
+          "description": "Variations instruction"
+        }
+      },
+      "examples": [
+        {
+          "inputs": {
+            "tone": "professional",
+            "headline_style": "benefit-focused",
+            "topic": "productivity tips",
+            "goal_description": "drives clicks and engagement",
+            "target_audience": "busy professionals",
+            "length_instruction": "Keep it under 60 characters"
+          },
+          "output": "Create a professional benefit-focused headline about productivity tips that drives clicks and engagement. Target audience: busy professionals. Keep it under 60 characters",
+          "description": "Professional productivity headline"
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "title": "Blog Post Headline",
+      "description": "Compelling blog post title that drives clicks",
+      "prompt": "Create a professional benefit-focused headline about productivity tips that drives clicks and engagement. Target audience: busy professionals. Keep it under 60 characters.",
+      "result": "10 Productivity Hacks That Actually Work (Backed by Science)"
+    },
+    {
+      "title": "Landing Page Headline",
+      "description": "Sales-focused landing page headline",
+      "prompt": "Create an enthusiastic benefit-focused headline about a new software tool that sells products/services. Target audience: tech professionals. Keep it compelling and action-oriented.",
+      "result": "Transform Your Workflow in 30 Minutes - Start Free Today"
+    },
+    {
+      "title": "Email Subject Line",
+      "description": "Email subject line that increases open rates",
+      "prompt": "Create a casual curiosity-driven headline about a new product launch that generates leads. Target audience: existing customers. Keep it short and compelling.",
+      "result": "🚀 You won't believe what we just launched..."
+    }
+  ]
+}

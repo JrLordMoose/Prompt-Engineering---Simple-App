@@ -1,0 +1,243 @@
+{
+  "id": "product-names",
+  "name": "Product & Service Names",
+  "description": "Create compelling names and copy for products, services, features, and benefits",
+  "icon": "package",
+  "color": "purple",
+  "questions": [
+    {
+      "id": "naming_type",
+      "type": "select",
+      "question": "What are you naming?",
+      "description": "Different naming types require different approaches",
+      "required": true,
+      "options": [
+        "Product Name",
+        "Service Name",
+        "Feature Name",
+        "Benefit Name",
+        "Package/Plan Name",
+        "Campaign Name",
+        "App/Software Name",
+        "Brand Name",
+        "Tagline/Slogan",
+        "Value Proposition"
+      ],
+      "order": 1
+    },
+    {
+      "id": "product_category",
+      "type": "select",
+      "question": "What category does this belong to?",
+      "description": "The category helps determine appropriate naming conventions",
+      "required": true,
+      "options": [
+        "Technology/Software",
+        "Health & Wellness",
+        "Finance/Business",
+        "Education/Training",
+        "Entertainment/Media",
+        "Food & Beverage",
+        "Fashion/Beauty",
+        "Home & Lifestyle",
+        "Travel/Tourism",
+        "Professional Services",
+        "Other"
+      ],
+      "order": 2
+    },
+    {
+      "id": "core_concept",
+      "type": "text",
+      "question": "What's the core concept or main benefit?",
+      "description": "Describe the primary value or main idea behind what you're naming",
+      "required": true,
+      "validation": {
+        "minLength": 3,
+        "maxLength": 150
+      },
+      "order": 3
+    },
+    {
+      "id": "target_audience",
+      "type": "audience_select",
+      "question": "Who is your target audience?",
+      "description": "Choose from common audiences or enter your own custom audience",
+      "required": false,
+      "options": [
+        "Young Adults (18-25)",
+        "Professionals (25-40)",
+        "Business Leaders",
+        "Entrepreneurs",
+        "Students",
+        "Parents",
+        "Tech Enthusiasts",
+        "Creative Professionals",
+        "Healthcare Workers",
+        "Educators",
+        "Custom"
+      ],
+      "validation": {
+        "maxLength": 150
+      },
+      "order": 4
+    },
+    {
+      "id": "naming_style",
+      "type": "select",
+      "question": "What naming style do you prefer?",
+      "description": "Different styles convey different messages and feelings",
+      "required": true,
+      "options": [
+        "Descriptive/Functional",
+        "Creative/Inventive",
+        "Short/Punchy",
+        "Professional/Corporate",
+        "Playful/Fun",
+        "Premium/Luxury",
+        "Modern/Tech",
+        "Trustworthy/Reliable",
+        "Innovative/Futuristic",
+        "Simple/Clean"
+      ],
+      "order": 5
+    },
+    {
+      "id": "brand_personality",
+      "type": "select",
+      "question": "What personality should the name convey?",
+      "description": "The personality should align with your brand values",
+      "required": true,
+      "options": [
+        "Professional/Trustworthy",
+        "Innovative/Cutting-edge",
+        "Friendly/Approachable",
+        "Powerful/Confident",
+        "Creative/Artistic",
+        "Reliable/Stable",
+        "Energetic/Dynamic",
+        "Sophisticated/Elegant",
+        "Playful/Entertaining",
+        "Caring/Empathetic"
+      ],
+      "order": 6
+    },
+    {
+      "id": "length_preference",
+      "type": "select",
+      "question": "Do you have a length preference?",
+      "description": "Consider where the name will be used and displayed",
+      "required": false,
+      "options": [
+        "Very Short (1-2 words)",
+        "Short (2-3 words)",
+        "Medium (3-4 words)",
+        "Long (4+ words)",
+        "No preference"
+      ],
+      "order": 7
+    },
+    {
+      "id": "variations",
+      "type": "number",
+      "question": "How many variations would you like?",
+      "description": "Choose how many different versions of your prompt to generate (3-20)",
+      "required": true,
+      "validation": {
+        "min": 3,
+        "max": 20
+      },
+      "order": 8
+    }
+  ],
+  "templates": [
+    {
+      "id": "product_naming",
+      "name": "Product Naming",
+      "description": "Create compelling names for products and services",
+      "template": "Create a {brand_personality} {naming_style} name for a {naming_type} in the {product_category} category. The name should convey the core concept of {core_concept}. Target audience: {target_audience}. {length_instruction}. {variations_instruction}",
+      "variables": {
+        "brand_personality": {
+          "type": "string",
+          "required": true,
+          "description": "The personality to convey"
+        },
+        "naming_style": {
+          "type": "string",
+          "required": true,
+          "description": "The naming style"
+        },
+        "naming_type": {
+          "type": "string",
+          "required": true,
+          "description": "What is being named"
+        },
+        "product_category": {
+          "type": "string",
+          "required": true,
+          "description": "The product category"
+        },
+        "core_concept": {
+          "type": "string",
+          "required": true,
+          "description": "The core concept or benefit"
+        },
+        "target_audience": {
+          "type": "string",
+          "required": false,
+          "description": "Target audience"
+        },
+        "length_instruction": {
+          "type": "string",
+          "required": false,
+          "description": "Length instruction"
+        },
+        "variations_instruction": {
+          "type": "string",
+          "required": false,
+          "description": "Variations instruction"
+        },
+        "length_instruction": {
+          "type": "string",
+          "required": false,
+          "description": "Length instruction"
+        }
+      },
+      "examples": [
+        {
+          "inputs": {
+            "brand_personality": "innovative",
+            "naming_style": "creative",
+            "naming_type": "product name",
+            "product_category": "technology/software",
+            "core_concept": "streamlined project management",
+            "target_audience": "business professionals",
+            "length_instruction": "Keep it short and memorable"
+          },
+          "output": "Create an innovative creative name for a product name in the technology/software category. The name should convey the core concept of streamlined project management. Target audience: business professionals. Keep it short and memorable",
+          "description": "Innovative project management tool name"
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "title": "Product Name",
+      "description": "Creative product name for a tech tool",
+      "prompt": "Create an innovative creative name for a product name in the technology/software category. The name should convey the core concept of streamlined project management. Target audience: business professionals. Keep it short and memorable.",
+      "result": "FlowSync, TaskFlow, ProjectPulse, WorkStream, TeamSync"
+    },
+    {
+      "title": "Service Name",
+      "description": "Professional service name for consulting",
+      "prompt": "Create a professional trustworthy name for a service name in the professional services category. The name should convey the core concept of strategic business consulting. Target audience: business leaders. Keep it professional and credible.",
+      "result": "StrategicEdge, BusinessBridge, ConsultPro, StrategyFirst, ExecutiveInsight"
+    },
+    {
+      "title": "Feature Name",
+      "description": "App feature name for productivity",
+      "prompt": "Create a friendly approachable name for a feature name in the technology/software category. The name should convey the core concept of smart task prioritization. Target audience: busy professionals. Keep it simple and intuitive.",
+      "result": "SmartSort, PriorityPulse, TaskWise, FocusFlow, EasySort"
+    }
+  ]
+}

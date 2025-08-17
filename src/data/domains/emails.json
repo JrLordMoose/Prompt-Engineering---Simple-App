@@ -1,0 +1,201 @@
+{
+  "id": "emails",
+  "name": "Professional Emails",
+  "description": "Write clear, professional emails for business communication",
+  "icon": "mail",
+  "color": "purple",
+  "questions": [
+    {
+      "id": "email_type",
+      "type": "select",
+      "question": "What type of email are you writing?",
+      "description": "Different email types require different approaches and tones",
+      "required": true,
+      "options": [
+        "Business Proposal",
+        "Follow-up",
+        "Meeting Request",
+        "Thank You",
+        "Introduction/Networking",
+        "Complaint/Issue",
+        "Recommendation",
+        "General Inquiry",
+        "Sales/Pitch",
+        "Apology"
+      ],
+      "order": 1
+    },
+    {
+      "id": "recipient_relationship",
+      "type": "select",
+      "question": "What's your relationship with the recipient?",
+      "description": "The relationship determines the appropriate level of formality",
+      "required": true,
+      "options": [
+        "New Contact/Stranger",
+        "Colleague/Co-worker",
+        "Manager/Supervisor",
+        "Client/Customer",
+        "Vendor/Supplier",
+        "Friend/Acquaintance",
+        "Mentor/Advisor",
+        "Subordinate/Employee"
+      ],
+      "order": 2
+    },
+    {
+      "id": "subject_matter",
+      "type": "text",
+      "question": "What's the main subject or purpose of the email?",
+      "description": "Be specific about what you want to communicate",
+      "required": true,
+      "validation": {
+        "minLength": 5,
+        "maxLength": 200
+      },
+      "order": 3
+    },
+    {
+      "id": "urgency",
+      "type": "select",
+      "question": "How urgent is this email?",
+      "description": "Urgency affects tone and call-to-action",
+      "required": true,
+      "options": [
+        "Not urgent - informational",
+        "Somewhat urgent - needs attention soon",
+        "Urgent - requires immediate response",
+        "Very urgent - time-sensitive matter"
+      ],
+      "order": 4
+    },
+    {
+      "id": "desired_outcome",
+      "type": "text",
+      "question": "What do you want the recipient to do?",
+      "description": "Be clear about the action you want them to take",
+      "required": false,
+      "validation": {
+        "maxLength": 150
+      },
+      "order": 5
+    },
+    {
+      "id": "tone",
+      "type": "select",
+      "question": "What tone should the email have?",
+      "description": "Choose a tone that matches the situation and relationship",
+      "required": true,
+      "options": [
+        "Professional/Formal",
+        "Friendly/Professional",
+        "Casual/Friendly",
+        "Assertive/Confident",
+        "Apologetic/Understanding",
+        "Enthusiastic/Positive",
+        "Concerned/Serious",
+        "Grateful/Appreciative"
+      ],
+      "order": 6
+    },
+    {
+      "id": "length_preference",
+      "type": "select",
+      "question": "How detailed should the email be?",
+      "description": "Consider the recipient's time and the complexity of the matter",
+      "required": false,
+      "options": [
+        "Brief and to the point",
+        "Moderate detail",
+        "Comprehensive explanation",
+        "No preference"
+      ],
+      "order": 7
+    },
+    {
+      "id": "variations",
+      "type": "number",
+      "question": "How many variations would you like?",
+      "description": "Choose how many different versions of your prompt to generate (3-20)",
+      "required": true,
+      "validation": {
+        "min": 3,
+        "max": 20
+      },
+      "order": 8
+    }
+  ],
+  "templates": [
+    {
+      "id": "professional_request",
+      "name": "Professional Request Email",
+      "description": "Make a clear, professional request with appropriate context",
+      "template": "Write a {tone} email to {recipient_relationship} about {subject_matter}. The email should be {urgency_level} and {length_preference}. {desired_outcome_instruction}. {variations_instruction}",
+      "variables": {
+        "tone": {
+          "type": "string",
+          "required": true,
+          "description": "The tone of the email"
+        },
+        "recipient_relationship": {
+          "type": "string",
+          "required": true,
+          "description": "Relationship with recipient"
+        },
+        "subject_matter": {
+          "type": "string",
+          "required": true,
+          "description": "Main subject of the email"
+        },
+        "urgency_level": {
+          "type": "string",
+          "required": true,
+          "description": "Level of urgency"
+        },
+        "length_preference": {
+          "type": "string",
+          "required": false,
+          "description": "Length preference"
+        },
+        "desired_outcome_instruction": {
+          "type": "string",
+          "required": false,
+          "description": "Instruction for desired outcome"
+        },
+        "variations_instruction": {
+          "type": "string",
+          "required": false,
+          "description": "Variations instruction"
+        }
+      },
+      "examples": [
+        {
+          "inputs": {
+            "tone": "professional",
+            "recipient_relationship": "new contact",
+            "subject_matter": "partnership opportunity",
+            "urgency_level": "not urgent",
+            "length_preference": "moderate detail",
+            "desired_outcome_instruction": "Include a clear call-to-action for a meeting"
+          },
+          "output": "Write a professional email to new contact about partnership opportunity. The email should be not urgent and moderate detail. Include a clear call-to-action for a meeting",
+          "description": "Professional partnership email"
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "title": "Meeting Request",
+      "description": "Professional meeting request with clear purpose",
+      "prompt": "Write a friendly professional email to a colleague about scheduling a project review meeting. The email should be somewhat urgent and brief and to the point. Include a clear call-to-action for meeting availability.",
+      "result": "Subject: Project Review Meeting - Your Availability\n\nHi [Name],\n\nI hope this email finds you well. I'd like to schedule a brief project review meeting to discuss the Q4 deliverables and ensure we're on track.\n\nCould you please let me know your availability for next week? I'm flexible between Tuesday and Thursday.\n\nLooking forward to catching up.\n\nBest regards,\n[Your name]"
+    },
+    {
+      "title": "Follow-up Email",
+      "description": "Professional follow-up after initial contact",
+      "prompt": "Write a professional email to a potential client about following up on our initial conversation. The email should be not urgent and moderate detail. Include a clear call-to-action for next steps.",
+      "result": "Subject: Following Up - [Company Name] Partnership Discussion\n\nDear [Name],\n\nI hope you're doing well. I wanted to follow up on our conversation last week about potential collaboration opportunities between our companies.\n\nAs we discussed, I believe there's significant potential for synergy in [specific area]. I've prepared a brief proposal outlining how we could work together.\n\nWould you be available for a 30-minute call next week to discuss this further? I'm happy to work around your schedule.\n\nLooking forward to hearing from you.\n\nBest regards,\n[Your name]\n[Your title]\n[Company]"
+    }
+  ]
+}

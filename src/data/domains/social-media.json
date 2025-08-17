@@ -1,0 +1,214 @@
+{
+  "id": "social-media",
+  "name": "Social Media Posts",
+  "description": "Generate engaging social media content for various platforms",
+  "icon": "share-2",
+  "color": "blue",
+  "questions": [
+    {
+      "id": "platform",
+      "type": "select",
+      "question": "Which social media platform are you creating content for?",
+      "description": "Different platforms have different best practices and character limits",
+      "required": true,
+      "options": [
+        "Twitter/X",
+        "LinkedIn",
+        "Instagram",
+        "Facebook",
+        "TikTok",
+        "YouTube",
+        "Other"
+      ],
+      "order": 1
+    },
+    {
+      "id": "content_type",
+      "type": "select",
+      "question": "What type of content are you creating?",
+      "description": "The content type will help determine the tone and structure",
+      "required": true,
+      "options": [
+        "Educational/Informative",
+        "Entertainment/Funny",
+        "Promotional/Product",
+        "Personal Story",
+        "Industry News",
+        "Tips & Tricks",
+        "Question/Poll",
+        "Other"
+      ],
+      "order": 2
+    },
+    {
+      "id": "topic",
+      "type": "text",
+      "question": "What's the main topic or subject of your post?",
+      "description": "Be specific about what you want to discuss or share",
+      "required": true,
+      "validation": {
+        "minLength": 3,
+        "maxLength": 100
+      },
+      "order": 3
+    },
+    {
+      "id": "tone",
+      "type": "select",
+      "question": "What tone should the content have?",
+      "description": "The tone will match your brand voice and audience expectations",
+      "required": true,
+      "options": [
+        "Professional/Formal",
+        "Casual/Friendly",
+        "Enthusiastic/Energetic",
+        "Humorous/Witty",
+        "Inspirational/Motivational",
+        "Authoritative/Expert",
+        "Conversational/Relatable"
+      ],
+      "order": 4
+    },
+    {
+      "id": "target_audience",
+      "type": "audience_select",
+      "question": "Who is your target audience?",
+      "description": "Choose from common audiences or enter your own custom audience",
+      "required": false,
+      "options": [
+        "Young Adults (18-25)",
+        "Professionals (25-40)",
+        "Business Leaders",
+        "Entrepreneurs",
+        "Students",
+        "Parents",
+        "Tech Enthusiasts",
+        "Creative Professionals",
+        "Healthcare Workers",
+        "Educators",
+        "Custom"
+      ],
+      "validation": {
+        "maxLength": 200
+      },
+      "order": 5
+    },
+    {
+      "id": "call_to_action",
+      "type": "select",
+      "question": "Do you want to include a call-to-action?",
+      "description": "A CTA encourages engagement and drives specific actions",
+      "required": false,
+      "options": [
+        "None",
+        "Like/Comment",
+        "Share/Retweet",
+        "Follow/Subscribe",
+        "Visit Website",
+        "Download/Get",
+        "Learn More",
+        "Custom"
+      ],
+      "order": 6
+    },
+    {
+      "id": "hashtags",
+      "type": "select",
+      "question": "Do you want to include hashtags?",
+      "description": "Hashtags help with discoverability and reach",
+      "required": false,
+      "options": [
+        "Yes, include relevant hashtags",
+        "No, keep it clean",
+        "Yes, but minimal (1-3)",
+        "Yes, trending hashtags"
+      ],
+      "order": 7
+    },
+    {
+      "id": "variations",
+      "type": "number",
+      "question": "How many variations would you like?",
+      "description": "Choose how many different versions of your prompt to generate (3-20)",
+      "required": true,
+      "validation": {
+        "min": 3,
+        "max": 20
+      },
+      "order": 8
+    }
+  ],
+  "templates": [
+    {
+      "id": "educational",
+      "name": "Educational Post",
+      "description": "Share knowledge and insights with your audience",
+      "template": "Create a {tone} social media post about {topic} for {platform}. The post should be educational and informative, targeting {target_audience}. {call_to_action_instruction} {hashtag_instruction}. {variations_instruction}",
+      "variables": {
+        "tone": {
+          "type": "string",
+          "required": true,
+          "description": "The tone of the post"
+        },
+        "topic": {
+          "type": "string",
+          "required": true,
+          "description": "The main topic"
+        },
+        "platform": {
+          "type": "string",
+          "required": true,
+          "description": "The social media platform"
+        },
+        "target_audience": {
+          "type": "string",
+          "required": false,
+          "description": "Target audience description"
+        },
+        "call_to_action_instruction": {
+          "type": "string",
+          "required": false,
+          "description": "CTA instruction"
+        },
+        "hashtag_instruction": {
+          "type": "string",
+          "required": false,
+          "description": "Hashtag instruction"
+        },
+        "variations_instruction": {
+          "type": "string",
+          "required": false,
+          "description": "Variations instruction"
+        }
+      },
+      "examples": [
+        {
+          "inputs": {
+            "tone": "professional",
+            "topic": "AI in business",
+            "platform": "LinkedIn",
+            "target_audience": "business professionals",
+            "call_to_action_instruction": "Include a call-to-action asking readers to share their thoughts",
+            "hashtag_instruction": "Include 3-5 relevant hashtags"
+          },
+          "output": "Create a professional social media post about AI in business for LinkedIn. The post should be educational and informative, targeting business professionals. Include a call-to-action asking readers to share their thoughts. Include 3-5 relevant hashtags",
+          "description": "Professional LinkedIn post about AI"
+        }
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "title": "LinkedIn Professional Post",
+      "description": "Share industry insights with a professional tone",
+      "prompt": "Create a professional LinkedIn post about the future of remote work, targeting HR professionals and business leaders. Include a call-to-action asking readers to share their company's remote work policies. Use 3-5 relevant hashtags like #RemoteWork #FutureOfWork #HR",
+      "result": "🚀 The Future of Remote Work: What We've Learned\n\nAfter 3+ years of remote work experimentation, the data is clear: hybrid models are here to stay. But here's what most companies are missing...\n\nKey insights from our latest research:\n• 73% of employees prefer hybrid work\n• Productivity increased by 22% on average\n• Employee retention improved by 31%\n\nWhat's your company's remote work policy? Share your approach in the comments! 👇\n\n#RemoteWork #FutureOfWork #HR #WorkplaceCulture #EmployeeExperience"
+    },
+    {
+      "title": "Twitter Thread Starter",
+      "description": "Begin an engaging Twitter thread with a hook",
+      "prompt": "Create an enthusiastic Twitter post about productivity tips, targeting young professionals. Make it the start of a thread. Include a call-to-action for engagement. Use trending productivity hashtags.",
+      "result": "🔥 5 Productivity Hacks That Changed My Life (Thread) 🧵\n\nAfter working with 100+ entrepreneurs, here are the game-changing habits that actually work:\n\n1/ First, let's talk about the #2AMRule...\n\nWhich productivity tip has been most effective for you? Drop your favorite below! ⬇️\n\n#Productivity #LifeHacks #WorkSmart #Thread"
+    }
+  ]
+}
