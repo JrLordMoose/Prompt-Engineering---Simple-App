@@ -20,6 +20,9 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
 
+    /* Type checking */
+    "types": [],
+
     /* Path mapping */
     "baseUrl": ".",
     "paths": {
