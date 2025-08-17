@@ -13,9 +13,10 @@
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
     "electron": "electron .",
-    "electron:dev": "concurrently \"npm run dev\" \"wait-on tcp:3000 tcp:3001 tcp:3002 tcp:3003 tcp:3004 tcp:3005 && electron .\"",
+    "electron:dev": "concurrently --kill-others \"npm run dev\" \"wait-on tcp:3000 tcp:3001 tcp:3002 tcp:3003 tcp:3004 tcp:3005 && electron .\"",
     "electron:build": "npm run build && electron-builder",
-    "electron:dist": "npm run build && electron-builder --publish=never"
+    "electron:dist": "npm run build && electron-builder --publish=never",
+    "cleanup": "taskkill /f /im node.exe 2>nul & taskkill /f /im electron.exe 2>nul & taskkill /f /im npm.exe 2>nul"
   },
   "dependencies": {
     "clsx": "^2.0.0",

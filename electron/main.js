@@ -74,6 +74,14 @@ function createWindow() {
   // Handle window closed
   mainWindow.on('closed', () => {
     mainWindow = null;
+    // Force quit the app when window is closed
+    app.quit();
+  });
+
+  // Handle window close button clicked
+  mainWindow.on('close', (event) => {
+    // Force quit the app
+    app.quit();
   });
 }
 
